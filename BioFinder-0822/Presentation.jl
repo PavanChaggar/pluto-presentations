@@ -95,8 +95,6 @@ pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets
 # ╔═╡ 1212f837-541e-48cc-9caf-3115aee37987
 md" 
 # Modelling on Brain Networks! 
-(The reason you keep me around.)
-
 We want to build up models like lego. 
 "
 
@@ -110,7 +108,7 @@ md"
 The first important part of the modelling of $\tau$P in AD is describing **transport through the brain**. In this work, we do this by modelling transport as diffusion, which can be easily achieved using the graph Laplacian. The graph Laplacian is derived from a graph of brain connections, generated using tractography."
 
 # ╔═╡ 83539771-b2bd-4ab0-b1e5-2444323c21e9
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/connectomes/connectome-diffusive.png"; h =300, w=900)
+pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/connectomes/connectome-length-free.png"; h =300, w=900)
 
 # ╔═╡ 2b2e5e0b-7ac6-40c6-84ed-d5e12fd64e95
 begin
@@ -158,7 +156,7 @@ Plots.plot(simulate(prob_diffusion, ρ1), size=(450,300), labels=false, ylims=(0
 md" ## Diffusion Model"
 
 # ╔═╡ 3af2f496-23b4-41fc-8072-69cf83b1d2fa
-LocalResource("/Users/pavanchaggar/Projects/model-selection/diffusion.mp4") 
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/diffusion.mp4") 
 
 # ╔═╡ dd63aa8e-2ef9-4d18-8f2e-cda1a825efaa
 begin
@@ -197,7 +195,7 @@ md"
 ## FKPP Model"
 
 # ╔═╡ 607d0291-89f3-4d4e-bb53-cc4de43de049
-LocalResource("/Users/pavanchaggar/Projects/model-selection/fkpp.mp4")
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/fkpp.mp4")
 
 # ╔═╡ 57f7b7e2-ded0-4eac-87a4-2077b3522535
 md"## Regional FKPP model"
@@ -217,7 +215,7 @@ md"
 ## Regional FKPP Model"
 
 # ╔═╡ ef098338-1b67-4682-bd05-e4154e5a420f
-LocalResource("/Users/pavanchaggar/Projects/model-selection/exfkpp.mp4")
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/exfkpp-all.mp4")
 
 # ╔═╡ dc8da42d-afdb-423b-812e-01160ccf637a
 md" 
@@ -290,9 +288,6 @@ md"
 # Predicting Patient Trajectories
 "
 
-# ╔═╡ 73b8faa9-2cd2-406a-aaa6-ff01225a5267
-LocalResource("/Users/pavanchaggar/Projects/model-selection/sub12-exfkpp.mp4")
-
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
 md" 
 # Limitations + Conclusions 
@@ -350,6 +345,5 @@ md"# Questions?"
 # ╟─b60c10fd-3407-4130-b265-62b7cfb622cb
 # ╟─492cc06c-27a4-4260-bb2f-09b6543df85b
 # ╟─9b8853ca-4c6f-421a-8c88-379180500225
-# ╟─73b8faa9-2cd2-406a-aaa6-ff01225a5267
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
