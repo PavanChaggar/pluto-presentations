@@ -197,6 +197,9 @@ md"
 # ╔═╡ 607d0291-89f3-4d4e-bb53-cc4de43de049
 LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/fkpp.mp4")
 
+# ╔═╡ 696cf4fb-4687-4306-b74b-b375215d1a1f
+
+
 # ╔═╡ 57f7b7e2-ded0-4eac-87a4-2077b3522535
 md"## Regional FKPP model"
 
@@ -331,6 +334,7 @@ md"# Questions?"
 # ╟─a11bfbd6-703b-427b-ae20-931dc40e7973
 # ╟─84f50b04-25d1-412e-bacf-5c0e9299eb63
 # ╟─607d0291-89f3-4d4e-bb53-cc4de43de049
+# ╠═696cf4fb-4687-4306-b74b-b375215d1a1f
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
 # ╟─15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
 # ╟─ece49802-e660-48fb-8592-f9a4098f10e8
