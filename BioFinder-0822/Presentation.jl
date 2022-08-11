@@ -198,10 +198,15 @@ md"
 LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/fkpp.mp4")
 
 # ╔═╡ 696cf4fb-4687-4306-b74b-b375215d1a1f
+md" 
+##  Generalising the FKPP model
+"
 
+# ╔═╡ a2c1eb7c-a782-4ff3-9171-7acf1bb3d338
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/generalised-fkpp.png"; h = 350, w=800)
 
 # ╔═╡ 57f7b7e2-ded0-4eac-87a4-2077b3522535
-md"## Regional FKPP model"
+md"## Generalising the FKPP model"
 
 # ╔═╡ 15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
 two_cols(md"
@@ -215,7 +220,7 @@ pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets
 
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
-## Regional FKPP Model"
+## Generalising the FKPP Model"
 
 # ╔═╡ ef098338-1b67-4682-bd05-e4154e5a420f
 LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/exfkpp-all.mp4")
@@ -334,7 +339,8 @@ md"# Questions?"
 # ╟─a11bfbd6-703b-427b-ae20-931dc40e7973
 # ╟─84f50b04-25d1-412e-bacf-5c0e9299eb63
 # ╟─607d0291-89f3-4d4e-bb53-cc4de43de049
-# ╠═696cf4fb-4687-4306-b74b-b375215d1a1f
+# ╟─696cf4fb-4687-4306-b74b-b375215d1a1f
+# ╟─a2c1eb7c-a782-4ff3-9171-7acf1bb3d338
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
 # ╟─15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
 # ╟─ece49802-e660-48fb-8592-f9a4098f10e8
