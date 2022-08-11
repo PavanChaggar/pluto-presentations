@@ -218,6 +218,14 @@ GMMs are fit to data from BioFinder, which has much better coverage of late stag
 	
 pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/gmm-lEC.png"; h = 275, w=450))
 
+# ╔═╡ 89dcf294-7b17-4aa4-8ad3-77dfd3a2d808
+md" 
+## Generalising the FKPP Model 
+"
+
+# ╔═╡ 724ebc25-d902-47e5-8ff4-916c77424768
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/carrying-capacities.png"; h = 350, w=800)
+
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
 ## Generalising the FKPP Model"
@@ -343,6 +351,8 @@ md"# Questions?"
 # ╟─a2c1eb7c-a782-4ff3-9171-7acf1bb3d338
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
 # ╟─15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
+# ╟─89dcf294-7b17-4aa4-8ad3-77dfd3a2d808
+# ╠═724ebc25-d902-47e5-8ff4-916c77424768
 # ╟─ece49802-e660-48fb-8592-f9a4098f10e8
 # ╟─ef098338-1b67-4682-bd05-e4154e5a420f
 # ╟─dc8da42d-afdb-423b-812e-01160ccf637a
