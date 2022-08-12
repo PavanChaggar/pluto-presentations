@@ -203,10 +203,10 @@ md"
 "
 
 # ╔═╡ a2c1eb7c-a782-4ff3-9171-7acf1bb3d338
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/generalised-fkpp.png"; h = 350, w=800)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/generalised-fkpp.png"; h = 350, w=800)
 
 # ╔═╡ 57f7b7e2-ded0-4eac-87a4-2077b3522535
-md"## Generalising the FKPP model"
+md"## Generalising the FKPP model: Local Parameters"
 
 # ╔═╡ 15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
 two_cols(md"
@@ -220,15 +220,15 @@ pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets
 
 # ╔═╡ 89dcf294-7b17-4aa4-8ad3-77dfd3a2d808
 md" 
-## Generalising the FKPP Model 
+## Generalising the FKPP Model: Carrying Capacities
 "
 
 # ╔═╡ 724ebc25-d902-47e5-8ff4-916c77424768
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/carrying-capacities.png"; h = 350, w=800)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 400, w=800)
 
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
-## Generalising the FKPP Model"
+## Generalising the FKPP Model: Dynamics"
 
 # ╔═╡ ef098338-1b67-4682-bd05-e4154e5a420f
 LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/exfkpp-all.mp4")
