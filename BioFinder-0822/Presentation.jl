@@ -299,8 +299,19 @@ Using hierarchical models we can:
 
 # ╔═╡ 55d79b31-c2fe-4d5a-8776-28e7cb815666
 md"
-## Population Level Hierarchical Inference
+## Population Level Distributions
 " 
+
+# ╔═╡ fbfa927d-5043-4386-9589-9589f85bec1d
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/hier-dsts-wlabels.png"; h = 450, w=900)
+
+# ╔═╡ 91f4e92c-6bba-4380-b309-f78ffd07329b
+md" 
+## Subject Level Distributions
+" 
+
+# ╔═╡ 6158d5cf-fe01-4c04-ad83-d921546e6f41
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h = 450, w=900)
 
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
 md" 
@@ -365,5 +376,8 @@ md"# Questions?"
 # ╟─7434dc23-3a6d-450f-86f1-7b5974f8801f
 # ╟─739aa309-fdec-478c-80c1-8f1efa0509bc
 # ╟─55d79b31-c2fe-4d5a-8776-28e7cb815666
+# ╟─fbfa927d-5043-4386-9589-9589f85bec1d
+# ╟─91f4e92c-6bba-4380-b309-f78ffd07329b
+# ╟─6158d5cf-fe01-4c04-ad83-d921546e6f41
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
