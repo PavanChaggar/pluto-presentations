@@ -313,9 +313,20 @@ md"
 # ╔═╡ 54f54339-1f56-4816-9c3d-c3667aceb8d4
 pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h = 450, w=900)
 
+# ╔═╡ c5825f18-6ec4-4dcb-9e9b-2ab6d9f8bd7f
+md"
+## Predictions: EC
+"
+
+# ╔═╡ 081aae2f-683d-40b4-beda-7079eec5cee5
+two_cols(
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-ec.png"; h = 450, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-ec.png"; h = 450, w=900)
+)
+
 # ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
 md" 
-# Predictions
+# Predictions: Hippocampus
 "
 
 # ╔═╡ 0c915672-2475-4543-92a1-1220822500bf
@@ -323,6 +334,19 @@ two_cols(
 	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-hc.png"; h = 450, w=900),
 	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-hc.png"; h = 450, w=900)
 )
+
+# ╔═╡ a0fbefc4-b34f-42fc-b3aa-289888700687
+md"
+## Predictions: Global tau"
+
+# ╔═╡ dd052a6e-e81a-4d1b-b7ec-0ec0c49a3168
+two_cols(
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltaupos.png"; h = 450, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltauneg.png"; h = 450, w=900)
+)
+
+# ╔═╡ 781dcc71-d62d-4f52-8ab8-0926f55c9c90
+
 
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
 md" 
@@ -390,7 +414,12 @@ md"# Questions?"
 # ╟─fbfa927d-5043-4386-9589-9589f85bec1d
 # ╟─91f4e92c-6bba-4380-b309-f78ffd07329b
 # ╟─54f54339-1f56-4816-9c3d-c3667aceb8d4
+# ╟─c5825f18-6ec4-4dcb-9e9b-2ab6d9f8bd7f
+# ╟─081aae2f-683d-40b4-beda-7079eec5cee5
 # ╟─ec9fa380-52c0-4c6e-82d1-88e396c4876e
-# ╠═0c915672-2475-4543-92a1-1220822500bf
+# ╟─0c915672-2475-4543-92a1-1220822500bf
+# ╟─a0fbefc4-b34f-42fc-b3aa-289888700687
+# ╟─dd052a6e-e81a-4d1b-b7ec-0ec0c49a3168
+# ╠═781dcc71-d62d-4f52-8ab8-0926f55c9c90
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
