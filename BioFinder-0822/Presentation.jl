@@ -225,7 +225,7 @@ md"
 "
 
 # ╔═╡ 724ebc25-d902-47e5-8ff4-916c77424768
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 350, w=800)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 350, w=900)
 
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
@@ -250,7 +250,7 @@ md"
 
 # ╔═╡ cf1e590b-e44f-4b33-bbda-cfe4ad579cb6
 md" 
-## Identifying Seeding Locations
+# Identifying Seeding Locations
 * This is a **VERY** hard problem. 
 * Typically not possible using the global FKPP model, since it is a model of **concentration**. It will either (1) provide trivial solutions where the region with the highest concentration will be identified as the seed. (2) Become non-identifiable due to saturation.
 * The problem is more tractable using the local FKPP model, since it models SUVR with regional baseline values and carrying capacities. However, in general, seeing sites will still be non-identifiable after some nodes are saturated. 
@@ -263,17 +263,43 @@ md"
 "
 
 # ╔═╡ 3997d798-2b48-4b90-a15a-6fef3c5ecbb6
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 350, w=800)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/seeding-locations-no-divs.png"; h = 450, w=900)
+
+# ╔═╡ be5bf2e6-96fa-4134-a6c8-3fa6a97c123c
+md"
+# Do Different Seeding Locations Explain Subtypes? 
+"
+
+# ╔═╡ 95d1b675-d47d-4451-a924-136157d76358
+md" 
+### Entorhinal Seeding
+"
+
+# ╔═╡ 77d563e6-9846-4aee-bdf5-9e01dcb6d2c6
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/localfkpp-cortical-entorhinal.mp4")
+
+# ╔═╡ 9c8cdfbd-1848-4240-9b7d-59cc7cb9da65
+md"
+### Inferior Temporal Seeding
+"
+
+# ╔═╡ 7434dc23-3a6d-450f-86f1-7b5974f8801f
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/localfkpp-cortical-inferiortemporal.mp4")
 
 # ╔═╡ 739aa309-fdec-478c-80c1-8f1efa0509bc
 md" 
-## Hierarchical Modelling
+# Hierarchical Modelling
 
 Using hierarchical models we can: 
 * Compare parameter values across different populations, e.g. Aβ+ and Aβ- patients.
 * Limit overfitting to single subjects.
 * Aid identifiability, grouping information across subjects.
 
+" 
+
+# ╔═╡ 55d79b31-c2fe-4d5a-8776-28e7cb815666
+md"
+## Population Level Hierarchical Inference
 " 
 
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
@@ -331,7 +357,13 @@ md"# Questions?"
 # ╟─d3a9829f-7ac4-4465-acb5-277d09cacce4
 # ╟─cf1e590b-e44f-4b33-bbda-cfe4ad579cb6
 # ╟─00d6a9ac-1173-4a0d-9f3e-58e8ab6a6959
-# ╠═3997d798-2b48-4b90-a15a-6fef3c5ecbb6
+# ╟─3997d798-2b48-4b90-a15a-6fef3c5ecbb6
+# ╟─be5bf2e6-96fa-4134-a6c8-3fa6a97c123c
+# ╟─95d1b675-d47d-4451-a924-136157d76358
+# ╟─77d563e6-9846-4aee-bdf5-9e01dcb6d2c6
+# ╟─9c8cdfbd-1848-4240-9b7d-59cc7cb9da65
+# ╟─7434dc23-3a6d-450f-86f1-7b5974f8801f
 # ╟─739aa309-fdec-478c-80c1-8f1efa0509bc
+# ╟─55d79b31-c2fe-4d5a-8776-28e7cb815666
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
