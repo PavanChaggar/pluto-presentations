@@ -310,8 +310,13 @@ md"
 ## Subject Level Distributions
 " 
 
-# ╔═╡ 6158d5cf-fe01-4c04-ad83-d921546e6f41
+# ╔═╡ 54f54339-1f56-4816-9c3d-c3667aceb8d4
 pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h = 450, w=900)
+
+# ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
+md" 
+# Predictions
+"
 
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
 md" 
@@ -378,6 +383,7 @@ md"# Questions?"
 # ╟─55d79b31-c2fe-4d5a-8776-28e7cb815666
 # ╟─fbfa927d-5043-4386-9589-9589f85bec1d
 # ╟─91f4e92c-6bba-4380-b309-f78ffd07329b
-# ╟─6158d5cf-fe01-4c04-ad83-d921546e6f41
+# ╟─54f54339-1f56-4816-9c3d-c3667aceb8d4
+# ╟─ec9fa380-52c0-4c6e-82d1-88e396c4876e
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
