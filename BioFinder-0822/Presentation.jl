@@ -318,6 +318,12 @@ md"
 # Predictions
 "
 
+# ╔═╡ 0c915672-2475-4543-92a1-1220822500bf
+two_cols(
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-hc.png"; h = 450, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-hc.png"; h = 450, w=900)
+)
+
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
 md" 
 # Limitations + Conclusions 
@@ -385,5 +391,6 @@ md"# Questions?"
 # ╟─91f4e92c-6bba-4380-b309-f78ffd07329b
 # ╟─54f54339-1f56-4816-9c3d-c3667aceb8d4
 # ╟─ec9fa380-52c0-4c6e-82d1-88e396c4876e
+# ╠═0c915672-2475-4543-92a1-1220822500bf
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
