@@ -105,7 +105,8 @@ md"
 
 # ╔═╡ 5c30120e-7923-4891-8f7f-b086bbf7f3e6
 md"
-The first important part of the modelling of $\tau$P in AD is describing **transport through the brain**. In this work, we do this by modelling transport as diffusion, which can be easily achieved using the graph Laplacian. The graph Laplacian is derived from a graph of brain connections, generated using tractography."
+The first important part of the modelling of $\tau$P in AD is describing **transport through the brain**. In this work, we model transport as diffusion across the structural network. We obtain the structural connectome using tractography data from HCP, processed using ProbTrackX in FSL.
+"
 
 # ╔═╡ 83539771-b2bd-4ab0-b1e5-2444323c21e9
 pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/connectomes/connectome-length-free.png"; h =300, w=900)
@@ -146,7 +147,7 @@ Using the graph Laplacian, we can define the network heat equation, which descri
 To the left, I have shown a simulation with an initial seeding concentration placed in the entorhinal cortex. By changing the diffusion coefficient, $\rho$, we can see how the dynamics are affected.
 \
 \
-$\frac{dp_i}{dt} = \underbrace{-\rho L_{ij} p_j}_{transport}$
+$\frac{dp_i}{dt} = \underbrace{\sum_{j} -\rho L_{ij} p_j}_{transport}$
 "
 ,     
 Plots.plot(simulate(prob_diffusion, ρ1), size=(450,300), labels=false, ylims=(0.0,0.5), xlims=(0.0,20.0), ylabel="Concentration")
@@ -172,7 +173,7 @@ md"
 # ╔═╡ a11bfbd6-703b-427b-ae20-931dc40e7973
 two_cols(md"",
 md"
-ρ = $(@bind ρ Slider(0:0.1:3, show_value=true, default=0)) \
+ρ = $(@bind ρ Slider(0:0.1:5, show_value=true, default=0)) \
 α = $(@bind α Slider(-3:0.1:3, show_value=true, default=0))
 ")
 
@@ -185,7 +186,7 @@ The next piece we want to add to the model is **autocatalytic protein growth**, 
 The effect of this quadratic term is exponential growth given a positive concentration of toxic protein that saturates as the concentration grows.
 \
 \
-$$\frac{d p_i}{dt} = \underbrace{-\rho L_{ij}p_j}_{transport} + \underbrace{\alpha p_i\left(1-p_i\right)}_{growth}$$
+$$\frac{d p_i}{dt} = \underbrace{\sum_j -\rho L_{ij}p_j}_{transport} + \underbrace{\alpha p_i\left(1-p_i\right)}_{growth}$$
 ",     
 Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(450,300), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration"))
 
@@ -224,7 +225,7 @@ md"
 "
 
 # ╔═╡ 724ebc25-d902-47e5-8ff4-916c77424768
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 400, w=800)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 350, w=800)
 
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
@@ -247,62 +248,33 @@ md"
 'Ok, Pavan, you've shown off your models, now tell us how they're useful?'
 "
 
-# ╔═╡ a582faef-85ac-4a51-ba4f-5bbf1e2e630f
+# ╔═╡ cf1e590b-e44f-4b33-bbda-cfe4ad579cb6
 md" 
-## Single Subject Inference and Predictions
+## Identifying Seeding Locations
+* This is a **VERY** hard problem. 
+* Typically not possible using the global FKPP model, since it is a model of **concentration**. It will either (1) provide trivial solutions where the region with the highest concentration will be identified as the seed. (2) Become non-identifiable due to saturation.
+* The problem is more tractable using the local FKPP model, since it models SUVR with regional baseline values and carrying capacities. However, in general, seeing sites will still be non-identifiable after some nodes are saturated. 
+* To do this, we perform inference using HMC and use a *horseshoe* prior to enforce sparsity. 
 "
 
-# ╔═╡ 5905156f-3fd2-4ab2-ac53-305eba364f03
-TwoColumn(
-	md"As a case study, we'll look at a single subject form the ADNI dataset.
+# ╔═╡ 00d6a9ac-1173-4a0d-9f3e-58e8ab6a6959
+md"
+## Identifying Seeding Locations
+"
 
-* The subject is A$\beta^{+}$ with 4 tau-PET scans.
-* We use Bayesian inference to fit models to patient data. 
-* For each model, we infer the model parameters, initial conditions and observation noise. 
-* We use a NUTS sampler for efficient sampling
-	", 
-	
-	pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/sub12/data.png"; h=350, w=1000)
-)
+# ╔═╡ 3997d798-2b48-4b90-a15a-6fef3c5ecbb6
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 350, w=800)
 
-# ╔═╡ 297e476a-bd0d-4306-9495-65ef12c7c7bf
+# ╔═╡ 739aa309-fdec-478c-80c1-8f1efa0509bc
 md" 
-## Inference and Posterior Summary
+## Hierarchical Modelling
+
+Using hierarchical models we can: 
+* Compare parameter values across different populations, e.g. Aβ+ and Aβ- patients.
+* Limit overfitting to single subjects.
+* Aid identifiability, grouping information across subjects.
+
 " 
-
-# ╔═╡ 78ae1e7f-9e12-47cd-899a-b8e1fa0c6ed5
-two_cols(
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/sub12/posteriorsummary2.png"; h = 350, w=300), 
-md"
-We can also do model comparison using the AIC score:
-
-| Diffusion |  FKPP | Ex. FKPP |
-|-----------|-------|----------|
-|-57.41     |-355.81| -564.46  |
-
-The AIC is a suboptimal choice for model comparison metric. 
-
-Ideally, we would use leave-k-out cross validation, however, we do not have enough data!
-"
-)
-
-# ╔═╡ af440978-f6f2-4a37-9af1-b9972a1240d2
-md" 
-##  Making Predictions...
-"
-
-# ╔═╡ b60c10fd-3407-4130-b265-62b7cfb622cb
-md"
-Since we used a Bayesian approach, we can examine the posterior distributions for parameters and run forward simulations.
-"
-
-# ╔═╡ 492cc06c-27a4-4260-bb2f-09b6543df85b
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/sub12/sub-12-EC.png"; h = 350, w=900)
-
-# ╔═╡ 9b8853ca-4c6f-421a-8c88-379180500225
-md" 
-# Predicting Patient Trajectories
-"
 
 # ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
 md" 
@@ -352,18 +324,14 @@ md"# Questions?"
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
 # ╟─15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
 # ╟─89dcf294-7b17-4aa4-8ad3-77dfd3a2d808
-# ╠═724ebc25-d902-47e5-8ff4-916c77424768
+# ╟─724ebc25-d902-47e5-8ff4-916c77424768
 # ╟─ece49802-e660-48fb-8592-f9a4098f10e8
 # ╟─ef098338-1b67-4682-bd05-e4154e5a420f
 # ╟─dc8da42d-afdb-423b-812e-01160ccf637a
 # ╟─d3a9829f-7ac4-4465-acb5-277d09cacce4
-# ╟─a582faef-85ac-4a51-ba4f-5bbf1e2e630f
-# ╟─5905156f-3fd2-4ab2-ac53-305eba364f03
-# ╟─297e476a-bd0d-4306-9495-65ef12c7c7bf
-# ╟─78ae1e7f-9e12-47cd-899a-b8e1fa0c6ed5
-# ╟─af440978-f6f2-4a37-9af1-b9972a1240d2
-# ╟─b60c10fd-3407-4130-b265-62b7cfb622cb
-# ╟─492cc06c-27a4-4260-bb2f-09b6543df85b
-# ╟─9b8853ca-4c6f-421a-8c88-379180500225
+# ╟─cf1e590b-e44f-4b33-bbda-cfe4ad579cb6
+# ╟─00d6a9ac-1173-4a0d-9f3e-58e8ab6a6959
+# ╠═3997d798-2b48-4b90-a15a-6fef3c5ecbb6
+# ╟─739aa309-fdec-478c-80c1-8f1efa0509bc
 # ╟─255536ce-88eb-474b-b465-84a75edbd767
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
