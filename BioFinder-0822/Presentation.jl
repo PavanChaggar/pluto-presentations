@@ -51,7 +51,7 @@ const L = laplacian_matrix(c);
 md"
 # Mathematical Modelling and Inference Methods for Alzheimer's Disease
 
-**Pavanjit Chaggar, June 2022** \
+**Pavanjit Chaggar, Aug 2022** \
 pavanjit.chaggar@maths.ox.ac.uk \
 @ChaggarPavan on Twitter
 
@@ -105,7 +105,7 @@ md"
 
 # ╔═╡ 5c30120e-7923-4891-8f7f-b086bbf7f3e6
 md"
-The first important part of the modelling of $\tau$P in AD is describing **transport through the brain**. In this work, we model transport as diffusion across the structural network. We obtain the structural connectome using tractography data from HCP, processed using ProbTrackX in FSL.
+The first important part of the modelling of $\tau$P in AD is describing **transport through the brain**. In this work, we model transport as diffusion across the structural network. We obtain the structural connectome using diffusion data from HCP, processed using ProbTrackX in FSL.
 "
 
 # ╔═╡ 83539771-b2bd-4ab0-b1e5-2444323c21e9
@@ -150,7 +150,7 @@ To the left, I have shown a simulation with an initial seeding concentration pla
 $\frac{dp_i}{dt} = \underbrace{\sum_{j} -\rho L_{ij} p_j}_{transport}$
 "
 ,     
-Plots.plot(simulate(prob_diffusion, ρ1), size=(450,300), labels=false, ylims=(0.0,0.5), xlims=(0.0,20.0), ylabel="Concentration")
+Plots.plot(simulate(prob_diffusion, ρ1), size=(450,300), labels=false, ylims=(0.0,0.55), xlims=(0.0,20.0), ylabel="Concentration", linewidth=2)
 )
 
 # ╔═╡ 93e36f97-bd13-43c3-8d02-d756c223383c
@@ -188,7 +188,7 @@ The effect of this quadratic term is exponential growth given a positive concent
 \
 $$\frac{d p_i}{dt} = \underbrace{\sum_j -\rho L_{ij}p_j}_{transport} + \underbrace{\alpha p_i\left(1-p_i\right)}_{growth}$$
 ",     
-Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(450,300), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration"))
+Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(450,300), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration", linewidth=2))
 
 
 # ╔═╡ 84f50b04-25d1-412e-bacf-5c0e9299eb63
@@ -196,7 +196,7 @@ md"
 ## FKPP Model"
 
 # ╔═╡ 607d0291-89f3-4d4e-bb53-cc4de43de049
-LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/fkpp.mp4")
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/global-fkpp.mp4")
 
 # ╔═╡ 696cf4fb-4687-4306-b74b-b375215d1a1f
 md" 
@@ -252,9 +252,9 @@ md"
 md" 
 # Identifying Seeding Locations
 * This is a **VERY** hard problem. 
-* Typically not possible using the global FKPP model, since it is a model of **concentration**. It will either (1) provide trivial solutions where the region with the highest concentration will be identified as the seed. (2) Become non-identifiable due to saturation.
+* Typically not possible using the global FKPP model, since it is a model of **concentration**. It will either (1) provide trivial solutions where the region with the highest concentration will be identified as the seed or (2) Become non-identifiable due to saturation.
 * The problem is more tractable using the local FKPP model, since it models SUVR with regional baseline values and carrying capacities. However, in general, seeing sites will still be non-identifiable after some nodes are saturated. 
-* To do this, we perform inference using HMC and use a *horseshoe* prior to enforce sparsity. 
+* We perform inference using HMC and use a *horseshoe* prior to enforce sparsity. 
 "
 
 # ╔═╡ 00d6a9ac-1173-4a0d-9f3e-58e8ab6a6959
@@ -272,7 +272,7 @@ md"
 
 # ╔═╡ 95d1b675-d47d-4451-a924-136157d76358
 md" 
-### Entorhinal Seeding
+## Entorhinal Seeding
 "
 
 # ╔═╡ 77d563e6-9846-4aee-bdf5-9e01dcb6d2c6
@@ -280,7 +280,7 @@ LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/v
 
 # ╔═╡ 9c8cdfbd-1848-4240-9b7d-59cc7cb9da65
 md"
-### Inferior Temporal Seeding
+## Inferior Temporal Seeding
 "
 
 # ╔═╡ 7434dc23-3a6d-450f-86f1-7b5974f8801f
@@ -320,19 +320,19 @@ md"
 
 # ╔═╡ 081aae2f-683d-40b4-beda-7079eec5cee5
 two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-ec.png"; h = 450, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-ec.png"; h = 450, w=900)
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-ec.png"; h = 400, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-ec.png"; h = 400, w=900)
 )
 
 # ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
 md" 
-# Predictions: Hippocampus
+## Predictions: Hippocampus
 "
 
 # ╔═╡ 0c915672-2475-4543-92a1-1220822500bf
 two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-hc.png"; h = 450, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-hc.png"; h = 450, w=900)
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-hc.png"; h = 400, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-hc.png"; h = 400, w=900)
 )
 
 # ╔═╡ a0fbefc4-b34f-42fc-b3aa-289888700687
@@ -341,25 +341,39 @@ md"
 
 # ╔═╡ dd052a6e-e81a-4d1b-b7ec-0ec0c49a3168
 two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltaupos.png"; h = 450, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltauneg.png"; h = 450, w=900)
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltaupos.png"; h = 400, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltauneg.png"; h = 400, w=900)
 )
 
 # ╔═╡ 781dcc71-d62d-4f52-8ab8-0926f55c9c90
-
-
-# ╔═╡ 255536ce-88eb-474b-b465-84a75edbd767
-md" 
-# Limitations + Conclusions 
-* We can use models to describe various processes in AD. 
-* ...However, the models are macro-scale descriptions of AD that don't provide a lot of mechanistic **explanation**.
-
-* Using Bayesian inference, we can calibrate models and estimate patient disease trajectories. 
-* ...However, we have very limited and noisy longitudinal patient data that makes it hard to perform inference and model comparison. 
+md"
+## Predictions: Regional change over time
 "
 
+# ╔═╡ 9597d14c-2d7d-4366-b421-ace3c1b2d082
+two_cols(
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-taupos.png"; h = 350, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-tauneg.png"; h = 350, w=900)
+)
+
+# ╔═╡ 7aefd2fa-a0f3-4460-82b1-1bf5d6e3b707
+md"
+## Predictions: Global change over time
+"
+
+# ╔═╡ 73587dd6-0b10-44ff-8949-60eb8eea7e59
+two_cols(
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-totaltaupos.png"; h = 350, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-totaltauneg.png"; h = 350, w=900)
+)
+
 # ╔═╡ 82411fe9-4773-4aea-8710-f2ae15692585
-md"# Questions?"
+md"# Next Steps...
+* Model validation on external dataset, i.e. BioFINDER? 
+* Adding amyloid interaction into the model to test whether this explains increased production rates and local variations. 
+* Using gene maps to add more regional information
+* Coupling SUVR with atropy to model decreases in SUVR during late stage disease. 
+"
 
 # ╔═╡ Cell order:
 # ╠═1f540848-eb08-11ec-32c6-d78736f8362e
@@ -420,6 +434,8 @@ md"# Questions?"
 # ╟─0c915672-2475-4543-92a1-1220822500bf
 # ╟─a0fbefc4-b34f-42fc-b3aa-289888700687
 # ╟─dd052a6e-e81a-4d1b-b7ec-0ec0c49a3168
-# ╠═781dcc71-d62d-4f52-8ab8-0926f55c9c90
-# ╟─255536ce-88eb-474b-b465-84a75edbd767
+# ╟─781dcc71-d62d-4f52-8ab8-0926f55c9c90
+# ╟─9597d14c-2d7d-4366-b421-ace3c1b2d082
+# ╟─7aefd2fa-a0f3-4460-82b1-1bf5d6e3b707
+# ╟─73587dd6-0b10-44ff-8949-60eb8eea7e59
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
