@@ -245,7 +245,7 @@ md"
 "
 
 # ╔═╡ d841bad5-3244-4634-910c-2a4bf8c83dec
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-taupos.png"; h=350, w=750)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-taupos.png"; h=350, w=700, hspace=50)
 
 # ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
 md" 
