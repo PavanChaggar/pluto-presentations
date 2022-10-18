@@ -1,3 +1,7 @@
+function NetworkFKPP(du, u, p, t)
+	du .= -p[1] * L * u .+ p[2] .* u .* (1 .- u)
+end
+
 struct TwoColumn{A, B}
     left::A
     right::B
