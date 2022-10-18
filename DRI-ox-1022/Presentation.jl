@@ -82,12 +82,11 @@ md"## Braak Stages of Tau protein
 In most AD cases, τP follows a predictable pattern of spreading, starting in the entorhinal cortex before spreading through the hippocampal regions, lateral cortex and finally into the neocortex. Atrophy tends to follow the spreading pattern of $\tau$P, more so than that of Aβ."
 
 # ╔═╡ 654bdbd1-3190-45dc-9d71-a6eb9ade28c5
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/braak-stages.png"; h=300, w=900)
+pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/braak-stages.png"; h=250, w=900)
 
 # ╔═╡ 1212f837-541e-48cc-9caf-3115aee37987
 md" 
 # Modelling on Brain Networks! 
-We want to build up models like lego. 
 "
 
 # ╔═╡ b0618ecd-e43e-4378-b90b-5f480a601749
@@ -152,12 +151,12 @@ The FKPP model is a reaction-diffusion model, derived from a kinetic model of th
 The model describes protein **transport** across a network and local concentration **growth**. 
 \
 \
-The effect of this quadratic term is exponential growth given a positive concentration of toxic protein that saturates toward $1.0$ as the concentration grows.
+The second term describes exponential growth given a positive concentration of toxic protein that saturates toward $1.0$ as the concentration grows.
 \
 \
 $$\frac{d p_i}{dt} = \underbrace{\sum_j -\rho L_{ij}p_j}_{transport} + \underbrace{\alpha p_i\left(1-p_i\right)}_{growth}$$
 ",     
-Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(425,300), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration", linewidth=2))
+Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(425,250), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration", linewidth=2))
 
 
 # ╔═╡ 84f50b04-25d1-412e-bacf-5c0e9299eb63
@@ -179,13 +178,19 @@ md"
 ## Describing Heterogeneity in $\tau P$ SUVR
 " 
 
+# ╔═╡ f18e7628-f03a-4e46-a086-b68b2422d400
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/braak/scholl-pet.png"; h=350, w=750)
+
+# ╔═╡ 4062217d-b34e-4e3b-ab5c-ef2fc9de34e2
+cite("Schöll, M., Lockhart, S.N., Schonhaut, D.R., O’Neil, J.P., Janabi, M., Ossenkoppele, R., Baker, S.L., Vogel, J.W., Faria, J., Schwimmer, H.D. and Rabinovici, G.D., 2016. PET imaging of tau deposition in the aging human brain. Neuron, 89(5), pp.971-982")
+
 # ╔═╡ 696cf4fb-4687-4306-b74b-b375215d1a1f
 md" 
 ##  Generalising the FKPP model
 "
 
 # ╔═╡ c2c35600-219c-4593-a8bf-6c296ac1bda4
-plot(load("/Users/pavanchaggar/ResearchDocs/pluto-presentations/assets/images/models/models.png"), showaxis=false, ticks=false, size=(1000, 400))
+plot(load("/Users/pavanchaggar/ResearchDocs/pluto-presentations/assets/images/models/models.png"), showaxis=false, ticks=false, size=(750, 350))
 
 # ╔═╡ 57f7b7e2-ded0-4eac-87a4-2077b3522535
 md"## Generalising the FKPP model: Local Parameters"
@@ -232,7 +237,7 @@ md"
 " 
 
 # ╔═╡ 54f54339-1f56-4816-9c3d-c3667aceb8d4
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h = 450, w=900)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h =350, w=750)
 
 # ╔═╡ 22931974-4961-4558-89fb-316f2c207484
 md"
@@ -240,7 +245,7 @@ md"
 "
 
 # ╔═╡ d841bad5-3244-4634-910c-2a4bf8c83dec
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-taupos.png"; h=500, w=900)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-taupos.png"; h=350, w=750)
 
 # ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
 md" 
@@ -249,8 +254,8 @@ md"
 
 # ╔═╡ 0c915672-2475-4543-92a1-1220822500bf
 two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-taupos-Right-Hippocampus.png"; h = 400, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-Right-Hippocampus.png"; h = 400, w=900)
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-taupos-Right-Hippocampus.png"; h =425, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-Right-Hippocampus.png"; h =350, w=900)
 )
 
 # ╔═╡ 82411fe9-4773-4aea-8710-f2ae15692585
@@ -286,7 +291,9 @@ md"# Next Steps...
 # ╟─84f50b04-25d1-412e-bacf-5c0e9299eb63
 # ╟─607d0291-89f3-4d4e-bb53-cc4de43de049
 # ╟─679afb1d-8d72-41b1-9648-2ed1bc2c5027
-# ╠═e69b89f8-c96c-48af-b1b3-81f2e9ca072c
+# ╟─e69b89f8-c96c-48af-b1b3-81f2e9ca072c
+# ╟─f18e7628-f03a-4e46-a086-b68b2422d400
+# ╟─4062217d-b34e-4e3b-ab5c-ef2fc9de34e2
 # ╟─696cf4fb-4687-4306-b74b-b375215d1a1f
 # ╟─c2c35600-219c-4593-a8bf-6c296ac1bda4
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
