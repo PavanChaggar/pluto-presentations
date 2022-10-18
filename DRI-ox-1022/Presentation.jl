@@ -195,14 +195,6 @@ GMMs are fit to data from BioFinder, which has much better coverage of late stag
 	
 pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/gmm-lEC.png"; h = 275, w=450))
 
-# ╔═╡ 89dcf294-7b17-4aa4-8ad3-77dfd3a2d808
-md" 
-## Generalising the FKPP Model: Carrying Capacities
-"
-
-# ╔═╡ 724ebc25-d902-47e5-8ff4-916c77424768
-pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/carrying-capacities.png"; h = 350, w=900)
-
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
 ## Generalising the FKPP Model: Dynamics"
@@ -215,7 +207,7 @@ md"
 # Hierarchical Modelling
 
 Using hierarchical models we can: 
-* Compare parameter values across different populations, e.g. Aβ+ and Aβ- patients.
+* Compare parameter values across different populations. Here we compare Aβ-, Aβ+τP- and Aβ+τP+ patients.
 * Limit overfitting to single subjects.
 * Aid identifiability, grouping information across subjects.
 
@@ -237,20 +229,6 @@ md"
 # ╔═╡ 54f54339-1f56-4816-9c3d-c3667aceb8d4
 pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h = 450, w=900)
 
-# ╔═╡ c5825f18-6ec4-4dcb-9e9b-2ab6d9f8bd7f
-md"
-## Predictions: EC
-"
-
-# ╔═╡ 4a391577-40b0-4b1c-9d0a-49b661888c05
-
-function pdf(str::String; h=100, w=100, vspace=0, hspace=0)
-        @htl("""
-                <iframe src="$(str)?raw=true" height=$(h) width=$(w) vspace=$(vspace) hspace=$(hspace)>
-                        """)
-end
-
-
 # ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
 md" 
 ## Predictions: Hippocampus
@@ -258,40 +236,8 @@ md"
 
 # ╔═╡ 0c915672-2475-4543-92a1-1220822500bf
 two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-mtlpos-hc.png"; h = 400, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-hc.png"; h = 400, w=900)
-)
-
-# ╔═╡ a0fbefc4-b34f-42fc-b3aa-289888700687
-md"
-## Predictions: Global tau"
-
-# ╔═╡ dd052a6e-e81a-4d1b-b7ec-0ec0c49a3168
-two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltaupos.png"; h = 400, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-globaltauneg.png"; h = 400, w=900)
-)
-
-# ╔═╡ 781dcc71-d62d-4f52-8ab8-0926f55c9c90
-md"
-## Predictions: Regional change over time
-"
-
-# ╔═╡ 9597d14c-2d7d-4366-b421-ace3c1b2d082
-two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-taupos.png"; h = 350, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-tauneg.png"; h = 350, w=900)
-)
-
-# ╔═╡ 7aefd2fa-a0f3-4460-82b1-1bf5d6e3b707
-md"
-## Predictions: Global change over time
-"
-
-# ╔═╡ 73587dd6-0b10-44ff-8949-60eb8eea7e59
-two_cols(
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-totaltaupos.png"; h = 350, w=900),
-	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-delta-totaltauneg.png"; h = 350, w=900)
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-taupos-Right-Hippocampus.png"; h = 400, w=900),
+	pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pstpred-tauneg-Right-Hippocampus.png"; h = 400, w=900)
 )
 
 # ╔═╡ 82411fe9-4773-4aea-8710-f2ae15692585
@@ -331,23 +277,13 @@ md"# Next Steps...
 # ╟─c2c35600-219c-4593-a8bf-6c296ac1bda4
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
 # ╟─15fbec7e-ae2c-4ffe-86c4-b6b1beacdfb3
-# ╟─89dcf294-7b17-4aa4-8ad3-77dfd3a2d808
-# ╟─724ebc25-d902-47e5-8ff4-916c77424768
 # ╟─ece49802-e660-48fb-8592-f9a4098f10e8
 # ╟─ef098338-1b67-4682-bd05-e4154e5a420f
 # ╟─739aa309-fdec-478c-80c1-8f1efa0509bc
 # ╟─55d79b31-c2fe-4d5a-8776-28e7cb815666
-# ╠═fbfa927d-5043-4386-9589-9589f85bec1d
+# ╟─fbfa927d-5043-4386-9589-9589f85bec1d
 # ╟─91f4e92c-6bba-4380-b309-f78ffd07329b
-# ╠═54f54339-1f56-4816-9c3d-c3667aceb8d4
-# ╟─c5825f18-6ec4-4dcb-9e9b-2ab6d9f8bd7f
-# ╠═4a391577-40b0-4b1c-9d0a-49b661888c05
+# ╟─54f54339-1f56-4816-9c3d-c3667aceb8d4
 # ╟─ec9fa380-52c0-4c6e-82d1-88e396c4876e
 # ╟─0c915672-2475-4543-92a1-1220822500bf
-# ╟─a0fbefc4-b34f-42fc-b3aa-289888700687
-# ╟─dd052a6e-e81a-4d1b-b7ec-0ec0c49a3168
-# ╟─781dcc71-d62d-4f52-8ab8-0926f55c9c90
-# ╟─9597d14c-2d7d-4366-b421-ace3c1b2d082
-# ╟─7aefd2fa-a0f3-4460-82b1-1bf5d6e3b707
-# ╟─73587dd6-0b10-44ff-8949-60eb8eea7e59
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
