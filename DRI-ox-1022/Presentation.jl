@@ -52,27 +52,18 @@ const L = laplacian_matrix(c);
 md"
 # Mathematical Modelling and Inference Methods for Alzheimer's Disease
 
-**Pavanjit Chaggar, Aug 2022** \
+**Pavanjit Chaggar, Oct 2022** \
 pavanjit.chaggar@maths.ox.ac.uk \
 @ChaggarPavan on Twitter
 
 DPhil student at the Mathematical Institute, University of Oxford.
-Supervised by Alain Goriely, Saad Jbabdi, Stefano Magon and Gregory Klein.
+Supervised by Alain Goriely, Saad Jbabdi, Stefano Magon (Roche) and Gregory Klein (Roche).
 "
 
-# ╔═╡ 0f3da277-c6ca-484f-9f83-b5899a3b2d5f
-md"
+# ╔═╡ 2f2105f5-aa6f-42d6-be5d-d9de2efedf5d
+md" 
 # Aim
-#### To build up models of AD that effectively describe our data.
-"
-
-# ╔═╡ a828a333-df39-4a4a-8744-0c235fb4342e
-md"
-# Overview and Introduction
-
-- Alzheimer's disease (AD)
-- Mathematical models of AD
-- Patient Inference Case Study
+Can we use mathematical models of AD to describe our in-vivo human observations? 
 "
 
 # ╔═╡ 5ff7a99d-0ea0-4919-8ffc-a41ab94984fe
@@ -156,15 +147,17 @@ md"
 # ╔═╡ ed5dfdbf-db67-47cd-8a06-dbf7c80dc336
 TwoColumn(
 md"
-The next piece we want to add to the model is **autocatalytic protein growth**, to more accurately describe toxic protein dynamics. The most simple such term we could include is a quadratic term that is bounded between $0$ and $1$. 
+The FKPP model is a reaction-diffusion model, derived from a kinetic model of the toxic prion process.
+
+The model describes protein **transport** across a network and local concentration **growth**. 
 \
 \
-The effect of this quadratic term is exponential growth given a positive concentration of toxic protein that saturates as the concentration grows.
+The effect of this quadratic term is exponential growth given a positive concentration of toxic protein that saturates toward $1.0$ as the concentration grows.
 \
 \
 $$\frac{d p_i}{dt} = \underbrace{\sum_j -\rho L_{ij}p_j}_{transport} + \underbrace{\alpha p_i\left(1-p_i\right)}_{growth}$$
 ",     
-Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(450,300), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration", linewidth=2))
+Plots.plot(simulate(prob_fkpp, [ρ, α]), size=(425,300), labels=false, ylims=(0.0,1.0), xlims=(0.0,20.0), ylabel="concentration", linewidth=2))
 
 
 # ╔═╡ 84f50b04-25d1-412e-bacf-5c0e9299eb63
@@ -173,6 +166,18 @@ md"
 
 # ╔═╡ 607d0291-89f3-4d4e-bb53-cc4de43de049
 LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/global-fkpp.mp4")
+
+# ╔═╡ 679afb1d-8d72-41b1-9648-2ed1bc2c5027
+md" 
+# Incorporating Regional Information 
+
+Can we incorporate regional information about $\tau P$ SUVR dynamics?
+" 
+
+# ╔═╡ e69b89f8-c96c-48af-b1b3-81f2e9ca072c
+md" 
+## Describing Heterogeneity in $\tau P$ SUVR
+" 
 
 # ╔═╡ 696cf4fb-4687-4306-b74b-b375215d1a1f
 md" 
@@ -229,6 +234,14 @@ md"
 # ╔═╡ 54f54339-1f56-4816-9c3d-c3667aceb8d4
 pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/sub-dsts.png"; h = 450, w=900)
 
+# ╔═╡ 22931974-4961-4558-89fb-316f2c207484
+md"
+## Predictions
+"
+
+# ╔═╡ d841bad5-3244-4634-910c-2a4bf8c83dec
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/hier-inf/pred-taupos.png"; h=500, w=900)
+
 # ╔═╡ ec9fa380-52c0-4c6e-82d1-88e396c4876e
 md" 
 ## Predictions: Hippocampus
@@ -244,7 +257,7 @@ two_cols(
 md"# Next Steps...
 * Model validation on external dataset, i.e. BioFINDER? 
 * Adding amyloid interaction into the model to test whether this explains increased production rates and local variations. 
-* Using gene maps to add more regional information
+* Using gene maps to add more regional information.
 * Coupling SUVR with atropy to model decreases in SUVR during late stage disease. 
 "
 
@@ -257,8 +270,7 @@ md"# Next Steps...
 # ╠═9b698c74-dbc7-4510-ae29-ead164bcf830
 # ╠═2aae6fa9-a3f0-451a-80dd-8b119f48072d
 # ╟─2e3cfdf8-2c92-422f-917e-fc5c8b2a3451
-# ╟─0f3da277-c6ca-484f-9f83-b5899a3b2d5f
-# ╟─a828a333-df39-4a4a-8744-0c235fb4342e
+# ╟─2f2105f5-aa6f-42d6-be5d-d9de2efedf5d
 # ╟─5ff7a99d-0ea0-4919-8ffc-a41ab94984fe
 # ╟─c7bd3abf-e615-4acd-a0b5-24e80ecfee68
 # ╟─654bdbd1-3190-45dc-9d71-a6eb9ade28c5
@@ -273,6 +285,8 @@ md"# Next Steps...
 # ╟─a11bfbd6-703b-427b-ae20-931dc40e7973
 # ╟─84f50b04-25d1-412e-bacf-5c0e9299eb63
 # ╟─607d0291-89f3-4d4e-bb53-cc4de43de049
+# ╟─679afb1d-8d72-41b1-9648-2ed1bc2c5027
+# ╠═e69b89f8-c96c-48af-b1b3-81f2e9ca072c
 # ╟─696cf4fb-4687-4306-b74b-b375215d1a1f
 # ╟─c2c35600-219c-4593-a8bf-6c296ac1bda4
 # ╟─57f7b7e2-ded0-4eac-87a4-2077b3522535
@@ -284,6 +298,8 @@ md"# Next Steps...
 # ╟─fbfa927d-5043-4386-9589-9589f85bec1d
 # ╟─91f4e92c-6bba-4380-b309-f78ffd07329b
 # ╟─54f54339-1f56-4816-9c3d-c3667aceb8d4
+# ╟─22931974-4961-4558-89fb-316f2c207484
+# ╟─d841bad5-3244-4634-910c-2a4bf8c83dec
 # ╟─ec9fa380-52c0-4c6e-82d1-88e396c4876e
 # ╟─0c915672-2475-4543-92a1-1220822500bf
 # ╟─82411fe9-4773-4aea-8710-f2ae15692585
