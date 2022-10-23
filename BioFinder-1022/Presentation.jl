@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.12
+# v0.19.14
 
 using Markdown
 using InteractiveUtils
@@ -82,7 +82,7 @@ md"## Braak Stages of Tau protein
 In most AD cases, τP follows a predictable pattern of spreading, starting in the entorhinal cortex before spreading through the hippocampal regions, lateral cortex and finally into the neocortex. Atrophy tends to follow the spreading pattern of $\tau$P, more so than that of Aβ."
 
 # ╔═╡ 654bdbd1-3190-45dc-9d71-a6eb9ade28c5
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/braak-stages.png"; h=250, w=900)
+pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/braak-stages.png"; h=300, w=900)
 
 # ╔═╡ 1212f837-541e-48cc-9caf-3115aee37987
 md" 
