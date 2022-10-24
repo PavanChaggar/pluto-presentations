@@ -217,7 +217,7 @@ We *estimate* these using Gaussian mixture modelling of population SUVR data per
 
 GMMs are fit to data from BioFinder, which has much better coverage of late stage AD subjects than ADNI, resulting in less sampling bias.",
 	
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/gmm-lEC.png"; h = 250, w=450))
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/gmm-lIT.png"; h = 250, w=450))
 
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
