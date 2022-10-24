@@ -100,33 +100,47 @@ The first important part of the modelling of $\tau$P in AD is describing **trans
 "
 
 # ╔═╡ 83539771-b2bd-4ab0-b1e5-2444323c21e9
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-1221/assets/images/connectomes/connectome-length-free.png"; h =300, w=900)
+pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/connectomes/weightednetwork.png"; h =300, w=900)
 
-# ╔═╡ 2b2e5e0b-7ac6-40c6-84ed-d5e12fd64e95
-begin
-        function NetworkDiffusion(du, u, p, t)
-        du .= -p * L * u
-        end
-        function simulate(prob, p)
-                solve(remake(prob, p=p), Tsit5())
-        end;
+# ╔═╡ 6bd79980-f152-4dcf-b3c9-4a53f4578674
+md" 
+## Diffusion Model 
+" 
 
-        u1 = zeros(83)
-        u1[[27, 68]] .= 0.5
+# ╔═╡ c85decbf-d539-4bf9-aa6e-c61bd8bbeceb
+LocalResource("/Users/pavanchaggar/Projects/model-selection/adni/visualisation/videos/diffusion-cortical.mp4")
 
-        p1 = 1.0
-        t_span1 = (0.0,20.0)
+# ╔═╡ 57a48ec5-f690-467b-86f1-e22b0fb4e73c
+md"
+## Protein Growth
+"
 
-        prob_diffusion = ODEProblem(NetworkDiffusion, u1, t_span1, p1)
-
-        sol_diffusion = solve(prob_diffusion, Tsit5())
-end;
+# ╔═╡ 1525f746-e2e3-4776-b458-22462270fbda
+two_cols(pic("https://github.com/PavanChaggar/pluto-presentations/blob/main/assets/images/models/heterodimerkinetics.png"; h=200, w=400),
+md"
+```math
+\begin{align}
+    \dfrac{\mathrm{d}p_i}{\mathrm{d}t} &= -\rho L_{ij} p_j +  k_0 - k_1 p_i - k_{12}p_i\tilde{p}_i \\
+    \dfrac{\mathrm{d}\tilde{p}_{i}}{\mathrm{d}t} &= -\rho L_{ij} p_j \phantom{+ k_0,} - \tilde{k}_1 \tilde{p}_i + k_{12}p_i\tilde{p}_i
+\end{align}
+```
+"
+)
 
 # ╔═╡ dd63aa8e-2ef9-4d18-8f2e-cda1a825efaa
 begin
 		function fkpp(du, u, p, t; L = L)
         	du .= -p[1] * L * u .+ p[2] .* u .* (1 .- u)
 		end
+	  	function simulate(prob, p)
+                solve(remake(prob, p=p), Tsit5())
+        end;
+
+ 		u1 = zeros(83)
+        u1[[27, 68]] .= 0.5
+
+        p1 = 1.0
+        t_span1 = (0.0,20.0)
 		prob_fkpp = ODEProblem(fkpp, u1, t_span1, [0.1,1.0])
         sol_fkpp = solve(prob_fkpp, Tsit5())
 end;
@@ -203,7 +217,7 @@ We *estimate* these using Gaussian mixture modelling of population SUVR data per
 
 GMMs are fit to data from BioFinder, which has much better coverage of late stage AD subjects than ADNI, resulting in less sampling bias.",
 	
-pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/gmm-lEC.png"; h = 275, w=450))
+pic("https://github.com/PavanChaggar/Presentations/blob/master/Roche-0622/assets/images/gmm-lEC.png"; h = 250, w=450))
 
 # ╔═╡ ece49802-e660-48fb-8592-f9a4098f10e8
 md"
@@ -283,7 +297,10 @@ md"# Next Steps...
 # ╟─b0618ecd-e43e-4378-b90b-5f480a601749
 # ╟─5c30120e-7923-4891-8f7f-b086bbf7f3e6
 # ╟─83539771-b2bd-4ab0-b1e5-2444323c21e9
-# ╟─2b2e5e0b-7ac6-40c6-84ed-d5e12fd64e95
+# ╟─6bd79980-f152-4dcf-b3c9-4a53f4578674
+# ╟─c85decbf-d539-4bf9-aa6e-c61bd8bbeceb
+# ╟─57a48ec5-f690-467b-86f1-e22b0fb4e73c
+# ╟─1525f746-e2e3-4776-b458-22462270fbda
 # ╟─dd63aa8e-2ef9-4d18-8f2e-cda1a825efaa
 # ╟─1e157396-03ae-43ff-a3a1-dec8776507e6
 # ╟─ed5dfdbf-db67-47cd-8a06-dbf7c80dc336
